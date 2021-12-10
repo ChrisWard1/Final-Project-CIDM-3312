@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Final-Project-CIDM-3312/bin/Debug/netcoreapp3.1/Final-Project-CIDM-3312.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/Final-Project-CIDM-3312.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Final-Project-CIDM-3312",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

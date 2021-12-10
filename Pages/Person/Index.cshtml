@@ -1,0 +1,72 @@
+@page
+@model Final_Project_CIDM_3312.Pages.Person.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address[0].zipCode)
+            </th>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Address) {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zipCode)
+            </td>
+                        <td>
+                @*  course represents a StudentCourse record
+                    Each course has a Course navigation property which is the actual Course
+                    The Course has a description. So you do course.Course.Description *@
+                @foreach (var address in item.PersonAddress)
+                {
+                    
+                   @address.Person.FirstName @address.Person.LastName<br>
+                }
+                @if (item.PersonAddress.Count == 0)
+                {
+                    @:Need to Delete
+                }
+            </td>    
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AddressID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AddressID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AddressID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
